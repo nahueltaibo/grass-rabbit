@@ -20,14 +20,29 @@ python build.py base_plate                        # just one
 
 | Part | Status |
 |---|---|
-| `motor_template` | The shared motor interface. Ported faithfully from `Motor Template v4`. |
-| `base_plate` | Right footprint, thickness, cutter clearance, perimeter bolts. No chamfers or bosses yet. |
+| `base_plate` | Ported. Outline, keyhole, bulkhead and all 14 M3 holes measured off the legacy file. |
+| `nose_plate` | Ported. Trapezoid outline, caster pattern, matching bulkhead half. |
+| `motor_template` | Ported faithfully from `Motor Template v4`. |
 | `cutter_motor_link` | First cut, not a port — the Fusion component of this name ships with no solid. |
+
+Not modelled yet: side walls, wheel covers, wheels, electronics plate, and the
+bumper linkage.
 
 `params.py` holds every dimension. Values were measured by parsing the STEP
 geometry in [../.docs/legacy-models/](../.docs/legacy-models/), so they're
 as-modelled, not design intent. The three M3 hole sizes are the ones to verify
 first: only `M3_CLEARANCE = 3.2` is confirmed.
+
+## Checking it
+
+```bash
+python verify.py
+```
+
+Compares envelopes, hole counts and diameters against the legacy geometry, and
+asserts both plates sit on z=0. Bounding boxes alone won't catch a feature
+placed at the origin or a sketch extruded downwards — both of which happened
+during the port.
 
 ## Two things worth knowing
 
@@ -36,9 +51,13 @@ across the whole legacy design. That reads like a geared motor with an offset
 output shaft. It's reproduced as found — confirm against the real motor before
 cutting a new mount.
 
-**The motor doesn't bolt to the base plate.** At Ø31 BCD the mounting bolts land
-on the edge of the Ø30 cutter clearance hole and break into it. That's why
-`cutter_motor_link` exists as a separate part.
+**The motor doesn't bolt to the base plate.** The plate carries a 3-bolt Ø40
+pattern; the motor's own pattern is 6 bolts on Ø31. `cutter_motor_link` adapts
+between the two — that's its whole job, and it's why the legacy assembly has a
+component by that name.
+
+**The cutter hole is a keyhole, not a circle.** Ø30 bore with a 10 mm slot
+running forward to a rounded end at y=-20. Reproduced as measured.
 
 ## Seeing it
 

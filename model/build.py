@@ -12,11 +12,13 @@ from build123d import export_step, export_stl
 from parts.base_plate import base_plate
 from parts.cutter_motor_link import cutter_motor_link
 from parts.motor_template import motor_template
+from parts.nose_plate import nose_plate
 
 PARTS = {
     "base_plate": base_plate,
     "cutter_motor_link": cutter_motor_link,
     "motor_template": motor_template,
+    "nose_plate": nose_plate,
 }
 
 OUT = Path(__file__).parent / "build"
