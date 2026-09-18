@@ -21,9 +21,9 @@ A minimal, 3D-printed autonomous lawn mower. Right now it's a rolling chassis wi
 
 ## What's in CAD
 
-Two files in [models/](models/). The `.f3z` is the source of truth; the `.stp` is a partial export of it.
+The Fusion originals live in [legacy-models/](legacy-models/) — three designs, each as a `.f3z` source plus a `.stp` export. `Robot Mower 3` is the one that got built and the one this project is about.
 
-**[Robot+Mower+3.f3z](models/Robot+Mower+3.f3z)** — Fusion assembly `Robot Mower 3`, version 24. Started May 2023, last saved today. Eight components, twelve solid bodies:
+**[Robot+Mower+3.f3z](legacy-models/Robot+Mower+3.f3z)** — Fusion assembly `Robot Mower 3`, version 24. Started May 2023, last saved today. Eight components, twelve solid bodies:
 
 | Component | What it is |
 |---|---|
@@ -38,9 +38,9 @@ Two files in [models/](models/). The `.f3z` is the source of truth; the `.stp` i
 Two things the design does well and shouldn't be lost:
 
 - **Hole sizes are named parameters** — `M3HoleForBolt`, `M3PassThrowHole`, `SelfTappingM3ScrewHole`, each with a comment. Retune once when the printer changes, not in forty sketches.
-- **`Motor Template` is an XRef**, not a copy. It's a disc carrying the motor's center bore and bolt circle, shared by every mount. Edit it once and all mounts follow. That file dates back to 2021 and lives outside this archive in Fusion's cloud — get it into the repo too, or the reference eventually breaks.
+- **`Motor Template` is an XRef**, not a copy — a disc carrying the motor's center bore and bolt circle, shared by every mount. Edit it once and all mounts follow. It's now exported alongside the others: **Ø36.75 disc, 0.6 mm thick, Ø13 bore, 6 × Ø3 on a Ø31 bolt circle**, with the bore sitting 7.5 mm off the bolt-circle centre.
 
-**[Robot+Mower+3.stp](models/Robot+Mower+3.stp)** — only 4 of the 8 components made it into this export. Useful for measuring, useless as a source. The dimensions above come from parsing its geometry, so they're bounding boxes rather than nominal values, and the overall envelope of 196 × 245 × 109 mm is a floor, not the real width — the wheels aren't in that file.
+**[Robot+Mower+3.stp](legacy-models/Robot+Mower+3.stp)** — only 4 of the 8 components made it into this export. Useful for measuring, useless as a source. The dimensions above come from parsing its geometry, so they're bounding boxes rather than nominal values, and the overall envelope of 196 × 245 × 109 mm is a floor, not the real width — the wheels aren't in that file.
 
 Still not modeled anywhere: the blade rotor, the bumper linkage and its switches, the caster mount, and the battery box. All four are built and sitting on the bench.
 
@@ -68,9 +68,9 @@ graph TD
 
 ### Phase 1 — Get the repo real
 
-The `.f3z` is the project. Everything else is a derivative.
+Rebuilding the design as code in [model/](../model/), with the Fusion files kept as the dimensional reference. See that folder's README for how it runs and what's ported so far.
 
-- Commit the `.f3z`, and pull `Motor Template` out of Fusion's cloud into the repo so the XRef can't go stale.
+- Commit the `.f3z` files. `Motor Template` is already exported, so the XRef can't go stale.
 - Model the missing parts — blade rotor, bumper linkage, caster mount, battery box — so the CAD matches the robot on the bench.
 - Give `Cutter Motor Link` real geometry, or delete it from the tree.
 - Export STLs per printable part and commit them next to the source.
