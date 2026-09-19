@@ -6,12 +6,24 @@ Wire the bumpers, tilt/lift cutoff, hardware e-stop and watchdog into the drive 
 
 Depends on: [02](02-drive-subsystem.md).
 
+## BOM
+
+| Part | Qty | Have | Notes |
+|---|---|---|---|
+| MPU-6050 (GY-521) breakout | 1 | buy | Roughly $2–3. Cheaper stand-in for the BNO085 — pitch/roll only |
+| Ball tilt switch, normally closed | 1 | buy | Hardware backup, wired into the e-stop chain |
+| NC mushroom e-stop button | 1 | buy | |
+| 30 A automotive relay + socket | 1 | buy | Blade line only |
+| 1N4007 diode | 1 | buy | Flyback across the relay coil |
+| Bumper microswitches | 2 | on hand | Already fitted in [00](00-chassis-redesign.md) |
+
 ## Tasks
 
 - [ ] Wire the existing bumper microswitches to ESP32-S3 interrupts, confirm each side reports independently
-- [ ] Mount the BNO085, confirm pitch/roll readout matches physical tilt
+- [ ] Mount the MPU-6050, run a complementary filter, confirm pitch/roll matches a phone-measured tilt
 - [ ] Implement tilt/lift cutoff — drive motors stop above a threshold angle
 - [ ] Wire the hardware e-stop relay on the blade line, independent of the MCU (blade motor isn't mounted yet — bench-test relay continuity with a multimeter)
+- [ ] Wire the ball tilt switch and the e-stop button into the relay chain, confirm either one drops the relay with the MCU unpowered
 - [ ] Implement a watchdog that stops drive if the control loop stalls, and verify it with a simulated hang
 
 ## Exit test

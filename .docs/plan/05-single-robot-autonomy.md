@@ -6,6 +6,12 @@ One robot combines drive, safety and RTK positioning to follow waypoints and hol
 
 Depends on: [02](02-drive-subsystem.md), [03](03-safety-subsystem.md), [04](04-rtk-positioning.md).
 
+## BOM
+
+| Part | Qty | Have | Notes |
+|---|---|---|---|
+| Marker stakes + tape measure | 1 set | check | Boundary corners and waypoint checks. No new electronics this stage |
+
 ## Tasks
 
 - [ ] Fuse encoder, IMU and RTK readings into a single position/heading estimate

@@ -2,7 +2,7 @@
 
 An index of iterations for the from-scratch rebuild. Each iteration ships one testable thing. Don't start the next one until the current one's exit test passes.
 
-For the electronics list, see [hardware-bom.md](../hardware-bom.md). For where the project stands mechanically, see [project-status.md](../project-status.md).
+Each iteration has its own BOM, so you only buy what that stage needs. Part specs and rationale live in [hardware-bom.md](../hardware-bom.md). For where the project stands mechanically, see [project-status.md](../project-status.md).
 
 ## Iteration graph
 

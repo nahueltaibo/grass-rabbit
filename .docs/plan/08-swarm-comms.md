@@ -6,6 +6,14 @@ Get two or more robots talking to each other and to a shared broker. Bench-testa
 
 Depends on: [01](01-power-and-core-electronics.md).
 
+## BOM
+
+| Part | Qty | Have | Notes |
+|---|---|---|---|
+| ESP32-S3 dev board | 1 | buy | Second peer for the bench test. A third comes from the base bridge in [04](04-rtk-positioning.md) |
+| MQTT broker host (PC or Raspberry Pi running Mosquitto) | 1 | check | |
+| WiFi access point | 1 | check | |
+
 ## Tasks
 
 - [ ] Set up ESP-NOW peer discovery between two boards, measure beacon exchange latency

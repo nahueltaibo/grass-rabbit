@@ -6,6 +6,17 @@ Redesign the mechanical platform from scratch: simpler than the current build, a
 
 Depends on: nothing. Runs in parallel with [01](01-power-and-core-electronics.md).
 
+## BOM
+
+| Part | Qty | Have | Notes |
+|---|---|---|---|
+| PETG or ASA filament | ~1 kg | check | Structural parts outdoors |
+| M3 and M4 screws, nuts, heat-set inserts | 1 assortment | check | Hole sizes are named parameters in the CAD |
+| JGB37-520 gearmotor with Hall encoder, 12 V | 2 | buy | Needed now for the motor-pocket fit check. Pick rpm from the wheel diameter, see [hardware-bom.md](../hardware-bom.md) |
+| Swivel caster | 1 | on hand | The salvaged one works for now |
+| Wheel tread (TPU strip or rubber band) | 2 | buy | Bare plastic slips on damp grass |
+| Bumper microswitches | 2 | on hand | Reused from the current build |
+
 ## Tasks
 
 - [ ] Fix the chassis footprint — reuse the old 196×245 mm envelope or resize it

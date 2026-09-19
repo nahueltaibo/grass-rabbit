@@ -6,6 +6,17 @@ Mount the blade motor and gate it behind every interlock built in [03](03-safety
 
 Depends on: [03](03-safety-subsystem.md).
 
+## BOM
+
+| Part | Qty | Have | Notes |
+|---|---|---|---|
+| Blade motor | 1 | on hand | Type (brushed or brushless) decides the driver below |
+| BTS7960 module if brushed, or an ESC if brushless | 1 | buy | |
+| INA226 current sensor breakout | 1 | buy | Blade line stall detection |
+| Razor blades, spare set | 1 | check | |
+| Pivot bolts + thread locker | 1 set | check | |
+| E-stop relay and button | — | from 03 | Already bought in [03](03-safety-subsystem.md) |
+
 ## Tasks
 
 - [ ] Mount the blade motor, rotor and blades per the existing mechanical design
